@@ -1,0 +1,50 @@
+'0':
+  template: hero
+  class: py-5
+  title:
+    text: 'Hello, world!'
+    tag: h1
+  subtitle:
+    text: >-
+      This is a simple hero unit, a simple jumbotron-style component for calling
+      extra attention to featured content or information
+    tag: p
+  content: >-
+    <p>HTML content here.</p> <p class="lead"><a class="btn btn-primary
+    btn-lg" href="#" role="button">Learn more</a></p>
+'1':
+  template: cs-left
+  class: py-5 bg-info text-white
+  settings:
+    padding: top
+  image:
+    large: 'http://via.placeholder.com/800x640'
+    mobile: 'http://via.placeholder.com/350x150'
+    alt: placeholder
+  title:
+    text: This is a content section
+    tag: h2
+  subtitle:
+    text: With some awesome features
+    tag: p
+  content: >-
+    <p>You can put HTML content here</p><p class="lead"><a class="btn
+    btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+'2':
+  template: cs-right
+  class: py-5 bg-success text-white
+  settings:
+    padding: top
+  image:
+    large: 'http://via.placeholder.com/800x640'
+    mobile: 'http://via.placeholder.com/350x150'
+    alt: placeholder
+  title:
+    text: This is another content section
+    tag: h2
+  subtitle:
+    text: With some awesome other features
+    tag: p
+  content: >-
+    <p>You can put HTML content here</p><p class="lead"><a class="btn
+    btn-primary btn-lg" href="#" role="button">Learn more</a></p>
