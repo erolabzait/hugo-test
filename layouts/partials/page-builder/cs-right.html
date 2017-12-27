@@ -1,4 +1,11 @@
-<div class="{{ .el.class }}">
+{{ .outer.Scratch.Set "classes" (slice "c-content-box") }}
+{{ if and .el.settings .el.settings.padding}}
+  {{ .outer.Scratch.Add "classes" (slice (printf "l-section--padding-%s" .el.settings.padding)) }}
+{{ else }}
+  {{ .outer.Scratch.Add "classes" (slice "l-section--padding") }}
+{{ end }}
+
+<div class="{{ delimit (.outer.Scratch.Get "classes") " " }} {{ .el.class }}">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-sm-6 order-sm-3">

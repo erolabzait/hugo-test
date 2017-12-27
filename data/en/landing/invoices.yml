@@ -33,8 +33,6 @@
 '2':
   template: cs-right
   class: py-5 bg-success text-white
-  settings:
-    padding: top
   image:
     large: 'http://via.placeholder.com/800x640'
     mobile: 'http://via.placeholder.com/350x150'

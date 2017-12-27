@@ -1,11 +1,10 @@
 {{ define "main"}}
   <!-- Find data file -->
-  {{ $site := $.Site }}
   {{ $language := index .Site.Data .Site.Language.Lang }}
   {{ $data := index $language.landing .Params.cdata }}
   <!-- Loop -->
   {{ range $index, $element := $data }}
     {{ $widget := (printf "%s%s" "page-builder/" $element.template ) }}
-    {{ partial $widget (dict "el" . "site" $site) }}
+    {{ partial $widget (dict "el" . "outer" $) }}
   {{ end}}
 {{ end}}
