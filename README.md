@@ -1,6 +1,6 @@
 # hugo-test
 
-Hugo Static Site Generator v0.31.1
+Hugo v0.38.1
 
 Inspired by:
 - Wordpress ACF
