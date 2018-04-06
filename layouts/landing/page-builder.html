@@ -1,10 +1,10 @@
 {{ define "main"}}
+  {{ with .Resources.ByType "page" }}
+    {{ range . }}
+      <h3>Template name {{ .Params.template }}</h3>
+      {{ $widget := (printf "%s%s" "page-builder/" .Params.template ) }}
+      {{ partial $widget . }}
+    {{ end }}
+  {{ end }}
   <!-- Find data file -->
-  {{ $language := index .Site.Data .Site.Language.Lang }}
-  {{ $data := index $language.landing .Params.cdata }}
-  <!-- Loop -->
-  {{ range $index, $element := $data }}
-    {{ $widget := (printf "%s%s" "page-builder/" $element.template ) }}
-    {{ partial $widget (dict "el" . "outer" $) }}
-  {{ end}}
 {{ end}}

@@ -2,20 +2,17 @@
   <div class="container">
     <div class="row justify-content-center text-center">
       <div class="col-md-6">
-        {{ if and .el.title .el.title.text }}
-          {{ $title := (printf "<%[1]s class=\"display-3\">%[2]s</%[1]s>" .el.title.tag .el.title.text ) }}
-          {{ htmlUnescape $title | safeHTML}}
+        {{ if and .Params.headline .Params.headline.text }}
+          {{ $headline := (printf "<%[1]s class=\"display-3\">%[2]s</%[1]s>" .Params.headline.tag .Params.headline.text ) }}
+          {{ htmlUnescape $headline | safeHTML}}
         {{ end }}
 
-        {{ if and .el.subtitle .el.subtitle.text  }}
-          {{ $subtitle := (printf "<%[1]s class=\"lead\">%[2]s</%[1]s>" .el.subtitle.tag .el.subtitle.text ) }}
+        {{ if and .Params.subtitle .Params.subtitle.text  }}
+          {{ $subtitle := (printf "<%[1]s class=\"lead\">%[2]s</%[1]s>" .Params.subtitle.tag .Params.subtitle.text ) }}
           {{ htmlUnescape $subtitle | safeHTML}}
         {{ end }}
 
-        {{ if .el.content }}
-          <hr class="my-4">
-          {{ .el.content | safeHTML }}
-        {{ end }}
+        {{ .Content }}
       </div>
       <!-- /.col-md-6 -->
     </div>

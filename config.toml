@@ -6,9 +6,11 @@ baseURL = "https://example.en"
 languageName = "English"
 weight = 1
 title = "In English"
+contentDir = "content"
 
 [Languages.de]
 baseURL = "https://example.de"
 languageName = "German"
 weight = 2
 title = "In German"
+contentDir = "content_de"

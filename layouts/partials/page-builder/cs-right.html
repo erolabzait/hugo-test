@@ -1,25 +1,25 @@
-{{ .outer.Scratch.Set "classes" (slice "c-content-box") }}
-{{ if and .el.settings .el.settings.padding}}
-  {{ .outer.Scratch.Add "classes" (slice (printf "l-section--padding-%s" .el.settings.padding)) }}
+{{ $.Scratch.Set "classes" (slice "c-content-box") }}
+{{ if and .Params.settings .Params.settings.padding}}
+  {{ $.Scratch.Add "classes" (slice (printf "l-section--padding-%s" .Params.settings.padding)) }}
 {{ else }}
-  {{ .outer.Scratch.Add "classes" (slice "l-section--padding") }}
+  {{ $.Scratch.Add "classes" (slice "l-section--padding") }}
 {{ end }}
 
-<div class="{{ delimit (.outer.Scratch.Get "classes") " " }} {{ .el.class }}">
+<div class="{{ delimit ($.Scratch.Get "classes") " " }} {{ .Params.class }}">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-sm-6 order-sm-3">
-        {{ if and .el.image .el.image.large }}
+        {{ if and .Params.image .Params.image.large }}
         <picture>
-          {{ if .el.image.mobile }}
-          <source srcset="{{ .el.image.large }}" media="(min-width: 720px)"></source>
-          <source srcset="{{ .el.image.mobile }}" media="(min-width: 240px)"></source>
+          {{ if .Params.image.mobile }}
+          <source srcset="{{ .Params.image.large }}" media="(min-width: 720px)"></source>
+          <source srcset="{{ .Params.image.mobile }}" media="(min-width: 240px)"></source>
           {{ else }}
-          <source srcset="{{ .el.image.large }}"></source>
+          <source srcset="{{ .Params.image.large }}"></source>
           {{ end }}
-          <img class="img-fluid lazyload" alt="{{ .el.image.alt }}">
+          <img class="img-fluid lazyload" alt="{{ .Params.image.alt }}">
           <noscript>
-            <img src="{{ .el.image.large }}" alt="{{ .el.image.alt }}">
+            <img src="{{ .Params.image.large }}" alt="{{ .Params.image.alt }}">
           </noscript>
         </picture>
         {{ end }}
@@ -27,18 +27,19 @@
       <!-- /.col -->
       <div class="col-sm-6">
         <div class="pl-sm-4">
-          {{ if and .el.title .el.title.text }} {{ $title := (printf "<%[1]s class=\"h1\">%[2]s</%[1]s>" .el.title.tag .el.title.text ) }}
-            {{ htmlUnescape $title | safeHTML}}
+          {{ if and .Params.headline .Params.headline.text }}
+            {{ $headline := (printf "<%[1]s class=\"h1\">%[2]s</%[1]s>" .Params.headline.tag .Params.headline.text ) }}
+            {{ htmlUnescape $headline | safeHTML}}
           {{ end }}
 
-          {{ if and .el.subtitle .el.subtitle.text  }}
-            {{ $subtitle := (printf "<%[1]s class=\"lead\">%[2]s</%[1]s>" .el.subtitle.tag .el.subtitle.text ) }}
+          {{ if and .Params.subtitle .Params.subtitle.text  }}
+            {{ $subtitle := (printf "<%[1]s class=\"lead\">%[2]s</%[1]s>" .Params.subtitle.tag .Params.subtitle.text ) }}
             {{ htmlUnescape $subtitle | safeHTML}}
           {{ end }}
 
-          {{ if .el.content }}
+          {{ if .Params.content }}
             <hr class="my-4">
-            {{ .el.content | safeHTML }}
+            {{ .Params.content | safeHTML }}
           {{ end }}
         </div>
       </div>
